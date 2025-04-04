@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold-primary: #d4af37;
+    --gold-light: #f7eb9a;
+    --gold-dark: #a17a13;
+    --maroon-primary: #8b2942;
+    --green-primary: #0c6138;
+    --green-light: #1a7e4f;
+    --beige-light: #f7f1e2;
+    --beige-dark: #e8dcc6;
+    --dark-brown: #3e2718;
+    --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f9f6f0;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.background-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* تنسيق الهيدر */
+header {
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.border-design {
+    height: 10px;
+    margin: 15px auto;
+    background-image: 
+        linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    position: relative;
+}
+
+.border-design::before, .border-design::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--gold-primary);
+    border-radius: 50%;
+    top: -10px;
+    background: white;
+}
+
+.border-design::before {
+    left: calc(50% - 60px);
+}
+
+.border-design::after {
+    right: calc(50% - 60px);
+}
+
+h1 {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 3rem;
+    color: var(--maroon-primary);
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    color: var(--dark-brown);
+    margin-bottom: 15px;
+}
+
+.family-connector {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    color: var(--green-primary);
+    animation: pulse 1.5s infinite alternate;
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق قسم المقدمة */
+.intro {
+    margin-bottom: 40px;
+}
+
+.frame {
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--beige-dark);
+}
+
+.frame::before, .frame::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.frame::before {
+    top: -5px;
+    left: -5px;
+    border-top: 2px solid var(--gold-primary);
+    border-left: 2px solid var(--gold-primary);
+}
+
+.frame::after {
+    bottom: -5px;
+    right: -5px;
+    border-bottom: 2px solid var(--gold-primary);
+    border-right: 2px solid var(--gold-primary);
+}
+
+.intro h2 {
+    font-family: 'Aref Ruqaa', serif;
+    color: var(--green-primary);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    color: #444;
+}
+
+/* تنسيق قسم الرسائل */
+.message-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.message-card {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.1;
+    top: -20px;
+    right: -20px;
+    border-radius: 50%;
+}
+
+.message-card.royal {
+    background: linear-gradient(135deg, #fff, #f9f5e8);
+    border-left: 5px solid var(--gold-primary);
+}
+
+.message-card.royal .card-decoration {
+    background-color: var(--gold-primary);
+}
+
+.message-card.deep {
+    background: linear-gradient(135deg, #fff, #f2e8f0);
+    border-left: 5px solid var(--maroon-primary);
+}
+
+.message-card.deep .card-decoration {
+    background-color: var(--maroon-primary);
+}
+
+.message-card.scent {
+    background: linear-gradient(135deg, #fff, #e8f0e9);
+    border-left: 5px solid var(--green-primary);
+}
+
+.message-card.scent .card-decoration {
+    background-color: var(--green-primary);
+}
+
+.message-card h3 {
+    font-family: 'Reem Kufi', sans-serif;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--dark-brown);
+    position: relative;
+}
+
+.message-card h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: currentColor;
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+.message-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* تنسيق قسم القصيدة */
+.poem-section {
+    margin: 70px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ornament {
+    width: 100px;
+    height: 200px;
+    position: relative;
+}
+
+.ornament::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='150' viewBox='0 0 50 150'%3E%3Cpath d='M25,0 C50,50 50,100 25,150 M25,0 C0,50 0,100 25,150' stroke='%23d4af37' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+.ornament.right::before {
+    right: 10px;
+}
+
+.ornament.left::before {
+    left: 10px;
+    transform: scaleX(-1);
+}
+
+.poem {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.poem::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.2'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+}
+
+.poem h2 {
+    font-family: 'Aref Ruqaa', serif;
+    color: var(--maroon-primary);
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.verses {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.verses p {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 1.2rem;
+    color: var(--dark-brown);
+    line-height: 1.8;
+}
+
+/* تنسيق قسم الوعد */
+.promise-section {
+    margin-bottom: 60px;
+}
+
+.promise-card {
+    background: linear-gradient(135deg, #f1f0ff, #fff);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    text-align: center;
+    border: 2px solid #e0d5c0;
+}
+
+.promise-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.1) 10%, transparent 15%),
+        radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.1) 10%, transparent 15%);
+    z-index: -1;
+}
+
+.promise-card h2 {
+    font-family: 'Aref Ruqaa', serif;
+    color: var(--green-primary);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.promise-card p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.signature {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 1.5rem;
+    color: var(--maroon-primary);
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* تنسيق الفوتر */
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.eid-wishes {
+    background-color: #f9f3e5;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--gold-light);
+}
+
+.eid-icon {
+    width: 80px;
+    height: 80px;
+    margin: 15px 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='40' text-anchor='middle' fill='%23d4af37'%3E%D8%B9%D9%8A%D8%AF%3C/text%3E%3C/svg%3E");
+    background-size: contain;
+    opacity: 0.7;
+}
+
+.eid-wishes h2 {
+    font-family: 'Aref Ruqaa', serif;
+    color: var(--gold-dark);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.eid-wishes p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.date {
+    margin-top: 30px;
+    font-family: 'Reem Kufi', sans-serif;
+    color: var(--dark-brown);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* أنميشن */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* جعل الموقع متجاوب مع جميع الأجهزة */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .poem-section {
+        flex-direction: column;
+    }
+    
+    .ornament {
+        height: 50px;
+        margin: 10px 0;
+    }
+    
+    .ornament::before {
+        transform: rotate(90deg);
+        left: calc(50% - 25px);
+    }
+    
+    .ornament.left::before {
+        transform: rotate(90deg) scaleX(-1);
+    }
+    
+    .message-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .family-icons {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
