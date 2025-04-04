@@ -42,9 +42,9 @@ git clone https://github.com/yourusername/eid-greetings-card.git
 
 ## 📞 تواصل معي
 
-- Twitter: [@yourtwitter]()
-- GitHub: [@yourusername]()
-- Email: your.email@example.com
+- Discord: [@B2nd9R]()
+- GitHub: [@B2nd9R]()
+- Email: B2nd9R@outlook.sa
 
 ---
 🌟 لا تنسى إضافة نجمة للمشروع إذا أعجبك!
